@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <!-- 配置一个 bean -->
+    <bean id="helloWorld1" class="com.dong.beans.HelloWord">
+        <!-- 为属性赋值 -->
+            <property name="userName" value="Mike"></property>
+            <property  name="userAge" value="12"></property>
+    </bean>
+
+    <bean id="helloWorld2" class="com.dong.beans.HelloWord">
+        <!-- 为属性赋值 -->
+        <property name="userName" value="giao"></property>
+        <property  name="userAge" value="16"></property>
+    </bean>
+    <bean id="person" class="com.dong.beans.serviceImpl.PersonDaoImpl">
+
+    </bean>
+
+    <bean id="personService1" class="com.dong.beans.serviceImpl.PersonServiceImpl">
+        <property name="personDao" ref="person"/>
+        <property name="helloWord" ref="helloWorld1"/>
+    </bean>
+    <bean id="personService2" class="com.dong.beans.serviceImpl.PersonServiceImpl">
+        <property name="personDao" ref="person"/>
+        <property name="helloWord" ref="helloWorld2"/>
+    </bean>
+
+
+    <bean id="constructor" class="com.dong.beans.serviceImpl.Constructor">
+        <property name="age" value="1"></property>
+    </bean>
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <!-- 配置一个 bean -->
+    <bean id="person2" class="com.dong.static_factory.bean.MyBeanFactory" factory-method="createBean">
+        <property name="userAge" value="1"></property>
+        <property name="userName" value="cai"></property>
+    </bean>
+
+    <bean id="myBeanFactory" class="com.dong.static_factory.bean.MyBeanFactoryTwo"/>
+    <bean id="person3" factory-bean="myBeanFactory" factory-method="createBean">
+        <property name="userAge" value="3"/>
+        <property name="userName" value="333"/>
+    </bean>
+</beans>
